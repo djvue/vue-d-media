@@ -1,0 +1,79 @@
+@import '~@/assets/styles/variables'
+$sidebar-width: 300px
+.d-media-manager
+  font-family: Avenir, Helvetica, Arial, sans-serif
+  color: #8c8c8c
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  width: 100%
+  height: 100%
+  &, & *, & *:after, & *:before
+    box-sizing: border-box
+  &_bordered
+    border: 1px solid $color-borders
+  &__error
+    color: red
+  &__inner
+    display: flex
+    flex-flow: column nowrap
+    width: 100%
+    height: 100%
+  &__head
+    flex-shrink: 0
+    display: flex
+    justify-content: space-between
+    width: 100%
+    background: $color-bg
+    padding: 0 16px
+    border-bottom: 1px solid $color-borders
+  &__tab-list
+    display: flex
+    flex-shrink: 0
+  &__tab
+    padding: .5rem 1rem
+    background: transparent
+    color: #718096
+    cursor: pointer
+    transition: border-bottom-color 0.2s
+    &, &:focus, &:active, &:hover
+      border: 0
+      border-bottom: 2px solid transparent
+      outline: none
+    &:hover
+      border-bottom-color: $color-hover
+    &_active
+      &, &:focus, &:active, &:hover
+        border-bottom-color: $color-active
+  // &__tab-name
+  &__tab-count
+    font-weight: 600
+  &__filters
+    padding: 8px 0
+    display: flex
+  &__filter
+    &:not(:last-child)
+      margin-right: 16px
+
+  &__body
+    position: relative
+    width: 100%
+    height: 100%
+    flex-grow: 1
+  &__main
+    position: absolute
+    top: 0
+    right: $sidebar-width
+    bottom: 0
+    left: 0
+    padding: 16px
+    overflow: auto
+    height: 100%
+  &__dropzone
+    margin-bottom: 16px
+  &__grid
+  &__sidebar
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    width: $sidebar-width

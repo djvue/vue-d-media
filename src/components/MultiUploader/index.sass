@@ -1,0 +1,240 @@
+@import '~@/assets/styles/variables'
+@keyframes passing-through
+  0%
+    opacity: 0
+    -webkit-transform: translateY(40px)
+    -moz-transform: translateY(40px)
+    -ms-transform: translateY(40px)
+    -o-transform: translateY(40px)
+    transform: translateY(40px)
+  30%, 70%
+    opacity: 1
+    -webkit-transform: translateY(0px)
+    -moz-transform: translateY(0px)
+    -ms-transform: translateY(0px)
+    -o-transform: translateY(0px)
+    transform: translateY(0px)
+  100%
+    opacity: 0
+    -webkit-transform: translateY(-40px)
+    -moz-transform: translateY(-40px)
+    -ms-transform: translateY(-40px)
+    -o-transform: translateY(-40px)
+    transform: translateY(-40px)
+
+.app-multiple-upload
+  &, & *, & *:after, & *:before
+    box-sizing: border-box
+  &__button
+    margin-top: 3px
+    cursor: pointer
+    padding: 12px 16px
+    border: 1px solid $color-borders
+    border-radius: 4px
+    font-weight: 700
+    color: $color-text-main
+    background-color: white
+    transition: background-color 0.3s
+    &_disabled
+      opacity: 0.6
+    &, &:focus, &:active, &:hover
+      outline: none
+    &:hover
+      background-color: $color-bg
+  &__box
+    position: relative
+    border: 2px solid #CDCDCD
+    border-radius: 4px
+  &__dropzone
+    width: 100%
+    padding: 14px 0 0
+    display: flex
+    flex-flow: row wrap
+    // margin: 0 -10px -20px
+
+  &__footer
+    display: flex
+    flex-flow: row nowrap
+    width: 100%
+    justify-content: space-between
+    align-items: flex-start
+    margin-top: 5px
+
+  &__constraint-list
+    display: flex
+    flex-flow: row nowrap
+
+  &__constraint
+    font-size: 14px
+    line-height: 20px
+    text-align: center
+    color: #8E8E8E
+    padding: 2px 6px
+    border: 1px solid #CDCDCD
+    &:not(:last-child)
+      margin-right: 5px
+
+  &__action
+    cursor: pointer
+    font-size: 12px
+    line-height: 20px
+    text-align: center
+    color: #8E8E8E
+    text-decoration: underline
+    padding: 2px 6px
+    border: 1px solid #CDCDCD
+    transition: opacity 0.3s
+    &:not(:last-child)
+      margin-right: 5px
+    &:hover
+      opacity: 0.8
+
+  &__placeholder
+    padding: 0 14px 14px
+  .dz-started &__placeholder
+    display: none
+
+  .dz-preview
+    position: relative
+    width: 136px
+    height: 136px
+    border-radius: 4px
+    border: 1px solid $color-text-title
+    margin: 0 14px 14px
+
+  .dz-image
+    width: 100%
+    height: 100%
+    background-color: rgba(150,150,150,0.5)
+    transition: opacity 0.3s
+    img
+      width: 100% !important
+      height: 100% !important
+      object-fit: cover !important
+
+  .dz-details
+    opacity: 0
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-end
+    background-color: rgba(0, 0, 0, 0.4)
+    transition: opacity 0.3s
+    color: white
+    padding: 5px
+    font-size: 12px
+    line-height: 14px
+  .dz-progress
+    position: absolute
+    bottom: 0
+    left: 0
+  .dz-error-message
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    background-color: rgba(0, 0, 0, 0.6)
+    color: red
+    padding: 5px
+    font-size: 12px
+    line-height: 14px
+    opacity: 0
+    transition: opacity 0.3s
+    // +trans(background-color)
+  .dz-error
+    .dz-error-message
+      opacity: 1
+
+  .dz-drag-hover
+    .dz-image
+      opacity: 0.2
+  // &:before
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(150, 150, 150, 0.5)
+  .dz-remove
+    font-size: 0
+    position: absolute
+    right: 0
+    top: 0
+    opacity: 0
+    transition: opacity 0.3s
+    &:before
+      content: ''
+      display: block
+      width: 40px
+      height: 40px
+      background-repeat: no-repeat
+      background-size: 20px 20px
+      background-position: center center
+      background-image: url(./close.svg)
+
+  .dz-preview:hover, .dz-file-preview
+    .dz-details
+      opacity: 1
+    .dz-error-message
+      opacity: 0
+      // opacity: 1
+      // background-color: rgba(0, 0, 0, 0.4)
+    .dz-remove
+      opacity: 1
+
+
+  .dz-preview.dz-success .dz-success-mark
+    animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1)
+  .dz-preview.dz-error .dz-error-mark
+    opacity: 1
+    animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1)
+  .dz-preview .dz-success-mark, .dz-preview .dz-error-mark
+    pointer-events: none
+    opacity: 0
+    z-index: 500
+    position: absolute
+    display: block
+    top: 50%
+    left: 50%
+    margin-left: -27px
+    margin-top: -27px
+  .dz-preview .dz-success-mark svg, .dz-preview .dz-error-mark svg
+    display: block
+    width: 54px
+    height: 54px
+  .dz-preview.dz-processing .dz-progress
+    opacity: 1
+    transition: all 0.2s linear
+  .dz-preview.dz-complete .dz-progress
+    opacity: 0
+    transition: opacity 0.4s ease-in
+  .dz-preview:not(.dz-processing) .dz-progress
+    animation: pulse 6s ease infinite
+  .dz-preview .dz-progress
+    opacity: 1
+    z-index: 1000
+    pointer-events: none
+    position: absolute
+    height: 16px
+    left: 50%
+    top: 50%
+    margin-top: -8px
+    width: 80px
+    margin-left: -40px
+    background: rgba(255, 255, 255, 0.9)
+    -webkit-transform: scale(1)
+    border-radius: 8px
+    overflow: hidden
+  .dz-preview .dz-progress .dz-upload
+    background: $color-main
+    background: linear-gradient(to bottom, $color-main, #9bd2b0)
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    width: 0
+    transition: width 300ms ease-in-out

@@ -1,0 +1,72 @@
+.d-media-manager-ui-popup-scroll-fix
+  overflow-y: hidden
+.d-media-manager-ui-popup
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  display: none
+  opacity: 0
+  transition: opacity 0.3s
+  background-color: rgba(0, 0, 0, 0.4)
+  cursor: pointer
+  &_show
+    opacity: 1
+  &_visible
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 1000
+  &__wrapper
+    cursor: auto
+    display: flex
+    flex-flow: column nowrap
+    position: relative
+    max-width: 680px
+    height: auto
+    //position: absolute
+    //left: 50%
+    //top: 50%
+    //transform: translateX(-50%) translateY(-50%)
+    border-radius: 4px
+    background-color: White
+    padding: 0
+    width: calc(100% - 20px)
+    max-height: calc(100% - 20px)
+    overflow: hidden
+    @media screen and (min-width: 768px)
+      max-height: calc(100% - 50px)
+  &__close
+    position: absolute
+    width: 56px
+    height: 56px
+    top: 0
+    right: 0
+    background-image: url(close.svg)
+    background-size: 16px 16px
+    background-position: center center
+    background-repeat: no-repeat
+    cursor: pointer
+
+  &__head
+    width: 100%
+    padding: 12px 56px
+    background: #F9F7F8
+    flex: 0 0 auto
+    border-bottom: 1px solid #e2e8f0
+  &__title
+    font-size: 20px
+    line-height: 32px
+  &__footer
+    width: 100%
+    padding: 16px 30px
+    border-top: 1px solid #E5E5E5
+    flex: 0 0 auto
+  &__body
+    padding: 30px 40px
+  &__inner
+    flex: 1 1 auto
+    overflow-y: hidden
+
+
