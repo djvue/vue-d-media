@@ -1,10 +1,10 @@
 {
   "name": "vue-d-media",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": false,
   "description": "Media manager & upload field package",
   "author": "djvue <vahlovd@gmail.com>",
-  "main": "./dist/vue-d-media.js",
+  "main": "./dist/vue-d-media.umd.js",
   "types": "./types/index.d.ts",
   "files": [
     "dist",
