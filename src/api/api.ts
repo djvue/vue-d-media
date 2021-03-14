@@ -1,20 +1,21 @@
 import axios, { AxiosInstance } from 'axios'
 import { normalize } from '@/api/api-helpers'
-import { PromiseApiResult } from '@/types/PromiseApiResult'
 
 import {
-  ApiRepositoryInterface,
-  FilterPromiseApiResult,
-  FilterWithTotalsPromiseApiResult,
-  MediaPromiseApiResult, OnUploadProgress, SaveForm
-} from '@/types/Api'
-import { FilterParams } from '@/types/FilterParams'
-import { ApiConfig } from '@/types/Config'
-import { FilterEntities } from '@/types/FilterEntities'
+  FilterResult,
+  MediaResult,
+  RepositoryInterface,
+  FilterWithTotalsResult,
+  SaveFormInput,
+  OnUploadProgressInput,
+  Result
+} from '~types/structures'
 
-const getWorkspaceId = () => 1
+import { FilterParams } from '~types/structures/FilterParams'
+import { ApiConfig } from '~types/structures/Config'
+import { FilterEntities } from '~types/structures/FilterEntities'
 
-class ApiRepository implements ApiRepositoryInterface {
+class ApiRepository implements RepositoryInterface {
   protected axios!: AxiosInstance
 
   constructor(
@@ -35,19 +36,19 @@ class ApiRepository implements ApiRepositoryInterface {
     return this.config.prefix
   }
 
-  public async get(id: number): MediaPromiseApiResult {
+  public async get(id: number): MediaResult {
     return normalize(await this.axios.get(`${this.getEndpoint()}/${id}`))
   }
 
-  public async filter(params: FilterParams): FilterPromiseApiResult {
+  public async filter(params: FilterParams): FilterResult {
     return normalize(await this.axios.get(this.getEndpoint(), { params: { ...params } }))
   }
 
-  public async filterWithTotals(params: FilterParams): FilterWithTotalsPromiseApiResult {
+  public async filterWithTotals(params: FilterParams): FilterWithTotalsResult {
     return normalize(await this.axios.get(this.getEndpoint(), { params: { withTotals: true, ...params } }))
   }
 
-  public async upload(file: File, entities: FilterEntities, onUploadProgress: OnUploadProgress): MediaPromiseApiResult {
+  public async upload(file: File, entities: FilterEntities, onUploadProgress: OnUploadProgressInput): MediaResult {
     const formData = new FormData()
     formData.append('file', file)
     formData.append('entities', JSON.stringify(entities))
@@ -59,14 +60,14 @@ class ApiRepository implements ApiRepositoryInterface {
     }))
   }
 
-  public async save(id: number, form: SaveForm, entities: FilterEntities): MediaPromiseApiResult {
+  public async save(id: number, form: SaveFormInput, entities: FilterEntities): MediaResult {
     return normalize(await this.axios.put(`${this.getEndpoint()}/${id}`, {
       ...form,
       entities,
     }))
   }
 
-  public async remove(id: number): PromiseApiResult {
+  public async remove(id: number): Result {
     return normalize(await this.axios.delete(`${this.getEndpoint()}/${id}`))
   }
 }

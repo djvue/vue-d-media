@@ -1,5 +1,5 @@
-import { Config, ApiConfig } from '@/types/Config'
 import ApiRepository from '@/api/api'
+import { Config, ApiConfig } from '~types/structures'
 
 export const getDefaultConfig = (): Config => {
   const apiConfig: ApiConfig = {

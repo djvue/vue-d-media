@@ -60,13 +60,14 @@ import { Component, Prop, Watch } from 'vue-property-decorator'
 import AppLoading from '@/components/ui/AppLoading/index.vue'
 import AppInput from '@/components/ui/AppInput.vue'
 import AppSelect from '@/components/ui/AppSelect.vue'
-import { Media } from '@/types/Media'
 import Base from '@/components/Base'
-import { UploadingMedia, UploadingMediaStatus } from '@/types/UploadingMedia'
 import { getDataUrl, wait } from '@/utils/helpers'
+import {
+  Media, UploadingMedia, FilterEntities, Entity, UploadingMediaStatus
+} from '~types/structures'
+
 // import testMedias from '@/utils/test-medias'
-import { Entity } from '@/types/Entity'
-import { FilterEntities } from '@/types/FilterEntities'
+
 import ManagerDropzone from './ManagerDropzone.vue'
 import ManagerGrid from './ManagerGrid.vue'
 import ManagerSidebar from './ManagerSidebar.vue'

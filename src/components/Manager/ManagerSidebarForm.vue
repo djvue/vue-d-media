@@ -20,12 +20,10 @@ import {
   Component, Prop, Watch
 } from 'vue-property-decorator'
 import Base from '@/components/Base'
-import { Media } from '@/types/Media'
 import AppInput from '@/components/ui/AppInput.vue'
 import AppSelect from '@/components/ui/AppSelect.vue'
-import { FilterEntities } from '@/types/FilterEntities'
-import { Entity } from '@/types/Entity'
 import { wait } from '@/utils/helpers'
+import { Media, FilterEntities, Entity } from '~types/structures'
 
 @Component({
   components: { AppInput, AppSelect },

@@ -13,8 +13,8 @@ AppPopup.d-media-manager-popup(ref="popup" wrapper-class="d-media-manager-popup_
 <script lang="ts">
 import Base from '@/components/Base'
 import { Component, Prop } from 'vue-property-decorator'
-import { Media } from '@/types/Media'
 import AppPopup from '@/components/ui/AppPopup/index.vue'
+import { Media } from '~types/structures'
 
 @Component({
   components: {

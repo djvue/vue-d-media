@@ -1,8 +1,8 @@
 import {
   Component, Prop, Vue
 } from 'vue-property-decorator'
-import { Config } from '@/types/Config'
 import { getDefaultConfig } from '@/config'
+import { Config } from '~types/structures'
 
 @Component
 export default class DMediaManagerBase extends Vue {

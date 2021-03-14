@@ -37,12 +37,11 @@ aside.d-media-manager-sidebar(v-else)
 </template>
 <script lang="ts">
 import { Component, Prop, Watch } from 'vue-property-decorator'
-import { Media } from '@/types/Media'
 import Base from '@/components/Base'
 import DeleteIcon from '@/components/Icons/DeleteIcon.vue'
 import DownloadIcon from '@/components/Icons/DownloadIcon.vue'
 import { wait } from '@/utils/helpers'
-import { Entity } from '@/types/Entity'
+import { Entity, Media } from '~types/structures'
 import ManagerSidebarForm from './ManagerSidebarForm.vue'
 
 @Component({

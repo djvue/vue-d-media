@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "outDir": "./lib",
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/lang/*.ts",
+  ]
+}

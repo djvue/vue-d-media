@@ -1,12 +1,12 @@
-import { ApiRepositoryInterface } from '@/types/Api'
-import { Entity } from '@/types/Entity'
+import { RepositoryInterface } from './Api'
+import { Entity } from './Entity'
 
-export type ApiConfig = {
+export interface ApiConfig {
   prefix: string
   headers: { [name: string]: string }
 }
 
-export type Config = {
+export interface Config {
   types: string[]
   accept: { [key: string]: string }
   entities: Entity[]
@@ -15,7 +15,7 @@ export type Config = {
   maxFiles: number
   maxFilesize: number
   api: {
-    repository: ApiRepositoryInterface
+    repository: RepositoryInterface
     config: ApiConfig
   }
 }

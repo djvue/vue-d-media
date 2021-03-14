@@ -31,10 +31,11 @@ import './index.sass'
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import Base from '@/components/Base'
 import hasObjectValue from '@/utils/mixins/has-object-value'
-import { Media } from '@/types/Media'
-import { FilterEntities } from '@/types/FilterEntities'
 import { AxiosResponse } from 'axios'
 import ManagerPopup from '@/components/ManagerPopup/index.vue'
+import VueDropzone from 'vue2-dropzone'
+import { FilterEntities, Media } from '~types/structures'
+
 // import AppDropzone from './AppDropzone'
 // import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
@@ -52,7 +53,8 @@ const THUMBNAIL_HEIGHT = 136
 // TODO: Remove vue2-dropzone dependency
 @Component({
   components: {
-    VueDropzone: () => import('vue2-dropzone'),
+    // VueDropzone: () => import('vue2-dropzone'),
+    VueDropzone,
     ManagerPopup,
   },
   mixins: [hasObjectValue],

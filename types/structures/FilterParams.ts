@@ -1,4 +1,4 @@
-import { FilterEntities } from '@/types/FilterEntities'
+import { FilterEntities } from './FilterEntities'
 
 export type FilterParams = {
   type: string

@@ -25,9 +25,8 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Watch } from 'vue-property-decorator'
-import { Media } from '@/types/Media'
 import Base from '@/components/Base'
-import { UploadingMedia } from '@/types/UploadingMedia'
+import { Media, UploadingMedia } from '~types/structures'
 
 // TODO: add image cover/contain option
 // TODO: add canvas uploaded image rendering https://gist.github.com/mfyz/10198229

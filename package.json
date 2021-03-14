@@ -4,8 +4,13 @@
   "private": false,
   "description": "Media manager & upload field package",
   "author": "djvue <vahlovd@gmail.com>",
-  "main": "src/init.js",
-  "types": "./src/main.d.ts",
+  "main": "./dist/vue-d-media.js",
+  "types": "./types/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "types"
+  ],
   "keywords": [
     "vue media",
     "vue media manager",
@@ -17,25 +22,36 @@
     "symfony",
     "laravel"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djvue/vue-d-media.git",
+    "directory": ""
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib",
+    "build": "npm run build:dist && npm run build:lib",
+    "build:dist": "vue-cli-service build --target lib",
+    "build:lib": "tsc --project tsconfig.dist.json",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/source-map": "^0.5.2",
     "axios": "^0.21.1",
-    "core-js": "^3.6.5",
-    "node-sass": "^5.0.0",
-    "pug": "^3.0.2",
-    "pug-plain-loader": "^1.1.0",
-    "sass-loader": "^10.1.1",
+    "eslint-import-resolver-typescript": "^2.4.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-i18n": "^8.24.0",
     "vue-property-decorator": "^9.1.2",
     "vue2-dropzone": "^3.6.0"
   },
+  "peerDependencies": {},
   "devDependencies": {
+    "core-js": "^3.6.5",
+    "node-sass": "^5.0.0",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass-loader": "^10.1.1",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
