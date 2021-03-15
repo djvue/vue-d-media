@@ -52,6 +52,7 @@ export default class ManagerSidebarForm extends Base {
   @Watch('media', { deep: true })
   onMediaChange() {
     this.loadForm()
+    this.errorMessage = ''
   }
 
   loadForm() {
@@ -66,7 +67,7 @@ export default class ManagerSidebarForm extends Base {
     const { success, message, data } = await this.baseConfig.api.repository.save(this.media.id, this.form, this.filters)
     if (!success) {
       this.errorMessage = message
-      await wait(5000)
+      await wait(10000)
       this.errorMessage = ''
       return
     }
@@ -85,6 +86,9 @@ export default class ManagerSidebarForm extends Base {
     margin-bottom: 4px
   &__input
     width: 100%
+  &__error-message
+    color: red
+    margin-bottom: 8px
   &__button
     margin-top: 3px
     cursor: pointer
