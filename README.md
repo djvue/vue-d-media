@@ -38,7 +38,7 @@ to filter medias by user or group or something else
 npm install vue-d-media
 ```
 
-Webpack global
+### Webpack global
 ```js
 import Vue from 'vue'
 import VueDMedia from 'vue-d-media'
@@ -46,7 +46,7 @@ import VueDMedia from 'vue-d-media'
 Vue.use(VueDMedia)
 ```
 
-Webpack local
+### Webpack local
 ```js
 import {
   Manager,
@@ -67,9 +67,42 @@ export default {
 
 Copy dist/vue-d-media.umd.js to you public directory and add script tag
 ```html
-<script src="/path/to/vue.js"/>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 <script src="/your-path/vue-d-media.umd.js"/>
 ```
+
+### I18n installation
+
+```shell
+npm install vue-i18n
+```
+
+```js
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+
+import en from 'vue-d-media/lib/lang/en'
+import ru from 'vue-d-media/lib/lang/ru'
+
+const i18n = new VueI18n({
+  locale: 'en',
+  fallbackLocale: 'en',
+  messages: {
+    en,
+    ru,
+  },
+})
+
+new Vue({
+  ...,
+  i18n
+}).$mount('#app')
+```
+
+See install [example](https://github.com/djvue/symfony-d-media-bundle-example/blob/main/assets/vue-init.js)
+
+See [i18n docs](https://kazupon.github.io/vue-i18n/installation.html)
 
 ## Usage
 
@@ -167,3 +200,17 @@ All props from SingleUploader and:
 ## Types
 
 See sources [types](types/structures)
+
+## TODO:
+
+- [ ] add laravel backend package
+- [ ] add show/hide sidebar button on narrow screens
+- [ ] add image resizing provider
+- [ ] remove dropzone.js dependency
+- [ ] make it work without i18n with saving compatibility
+- [ ] add canvas resizing after upload to reduce memory usage
+- [ ] add more translations
+- [ ] improve docs
+- [ ] add unit tests
+
+<!-- ## History --> 
