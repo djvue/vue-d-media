@@ -1,50 +1,19 @@
-import {
-  RepositoryInterface,
-  AxiosResponseData,
-  Result,
-  OnUploadProgressInput,
-  SaveFormInput,
-  FilterResult,
-  FilterWithTotalsResult,
-  MediaResult,
-  Response,
-} from './structures/Api'
+import { VueConstructor, PluginObject } from 'vue'
 
-import {
-  // Config
-  Config,
-  ApiConfig,
+export * from './exports'
 
-  // Types
-  Entity,
-  FilterEntities,
-  FilterParams,
-  Media,
-  UploadingMedia,
-  UploadingMediaStatus,
-} from './structures'
+declare const plugin: PluginObject<never>
+declare const Manager: VueConstructor
+declare const ManagerPopup: VueConstructor
+declare const SingleUploader: VueConstructor
+declare const MultiUploader: VueConstructor
+
+export default plugin
 
 export {
-  // Api
-  RepositoryInterface as ApiRepositoryInterface,
-  AxiosResponseData,
-  Result as ApiResult,
-  OnUploadProgressInput as ApiOnUploadProgressInput,
-  SaveFormInput as ApiSaveFormInput,
-  FilterResult as ApiFilterResult,
-  FilterWithTotalsResult as ApiFilterWithTotalsResult,
-  MediaResult as ApiMediaResult,
-  Response as ApiResponse,
-
-  // Config
-  Config,
-  ApiConfig,
-
-  // Types
-  Entity,
-  FilterEntities,
-  FilterParams,
-  Media,
-  UploadingMedia,
-  UploadingMediaStatus,
+  plugin,
+  Manager,
+  ManagerPopup,
+  SingleUploader,
+  MultiUploader,
 }

@@ -13,7 +13,7 @@ module.exports = {
     extract: false
   },
   configureWebpack: (config) => {
-    config.resolve.extensions.push('.d.ts')
+    // config.resolve.extensions.push('.d.ts')
     // eslint-disable-next-line no-param-reassign
     config.resolve.alias['~types'] = path.join(__dirname, 'types')
     if (isProd) {
@@ -37,7 +37,7 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'http://d-media-bundle-example.local',
-        pathRewrite: { '^/api': '/api/board' },
+        // pathRewrite: { '^/api': '/api/board' },
         secure: false,
         changeOrigin: true
       },

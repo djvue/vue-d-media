@@ -1,23 +1,28 @@
-import { PluginObject } from 'vue'
+import _Vue, { PluginObject, PluginFunction } from 'vue'
 
 import Manager from './components/Manager/index.vue'
 import ManagerPopup from './components/ManagerPopup/index.vue'
 import SingleUploader from './components/SingleUploader/index.vue'
 import MultiUploader from './components/MultiUploader/index.vue'
 
-export const plugin: PluginObject<never> = {
-  installed: false,
+export interface InstallFunction extends PluginFunction<{}> {
+  installed?: boolean
+}
 
-  install(Vue) {
-    if (this.installed) {
-      return
-    }
-    this.installed = true
-    Vue.component('VueDMediaManager', Manager)
-    Vue.component('VueDMediaManagerPopup', ManagerPopup)
-    Vue.component('VueDMediaSingleUploader', SingleUploader)
-    Vue.component('VueDMediaMultiUploader', MultiUploader)
+const install: InstallFunction = (Vue: typeof _Vue) => {
+  if (install.installed) {
+    return
   }
+
+  Vue.component('vue-d-media-manager', Manager)
+  Vue.component('VueDMediaManagerPopup', ManagerPopup)
+  Vue.component('VueDMediaSingleUploader', SingleUploader)
+  Vue.component('VueDMediaMultiUploader', MultiUploader)
+  install.installed = true
+}
+
+export const plugin: PluginObject<{}> = {
+  install
 }
 
 // Auto-install when vue is found (eg. in browser via <script> tag)

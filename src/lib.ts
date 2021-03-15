@@ -5,6 +5,8 @@ import MultiUploader from './components/MultiUploader/index.vue'
 
 import { plugin } from './plugin'
 
+export const install = plugin.install
+
 export {
   plugin,
   Manager,

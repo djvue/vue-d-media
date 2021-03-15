@@ -1,6 +1,6 @@
 {
   "name": "vue-d-media",
-  "version": "0.8.1",
+  "version": "0.8.7",
   "private": false,
   "description": "Media manager & upload field package",
   "author": "djvue <vahlovd@gmail.com>",
@@ -29,9 +29,9 @@
     "directory": ""
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --entry demo.ts",
     "build": "npm run build:dist && npm run build:lib",
-    "build:dist": "vue-cli-service build --target lib",
+    "build:dist": "vue-cli-service build --target lib --entry ./src/lib.ts",
     "build:lib": "tsc --project tsconfig.dist.json",
     "lint": "vue-cli-service lint"
   },
