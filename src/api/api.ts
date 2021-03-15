@@ -12,14 +12,14 @@ import {
 } from '~types/structures'
 
 import { FilterParams } from '~types/structures/FilterParams'
-import { ApiConfig } from '~types/structures/Config'
+import { FullApiConfig } from '~types/structures/Config'
 import { FilterEntities } from '~types/structures/FilterEntities'
 
 class ApiRepository implements RepositoryInterface {
   protected axios!: AxiosInstance
 
   constructor(
-    protected config: ApiConfig
+    protected config: FullApiConfig
   ) {
     this.axios = this.getAxios()
   }

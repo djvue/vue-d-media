@@ -91,7 +91,7 @@ export default class DMediaManagerSingleUploader extends Base {
     return this.constraints || this.defaultConstraints
   }
 
-  get options(): { [key: string]: object|string|number|boolean } {
+  get options(): { [key: string]: any } { // eslint-disable-line @typescript-eslint/no-explicit-any
     return {
       // eslint-disable-next-line no-restricted-globals
       url: `${location.origin}${this.baseConfig.api.config.prefix}`,

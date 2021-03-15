@@ -8,6 +8,7 @@ AppPopup.d-media-manager-popup(ref="popup" wrapper-class="d-media-manager-popup_
     canSubmit
     :value="value"
     @input="handleSubmit($event)"
+    :config="config"
   )
 </template>
 <script lang="ts">
