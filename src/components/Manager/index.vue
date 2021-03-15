@@ -192,7 +192,7 @@ export default class DMediaManager extends Base {
   handleScrollChange() {
     const el = this.$refs.main as HTMLElement
     const bottomSpace = el.scrollHeight - el.clientHeight - el.scrollTop
-    if (bottomSpace < 300 && this.noMore) {
+    if (bottomSpace < 300 && !this.noMore) {
       this.loadMore()
     }
   }
