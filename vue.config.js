@@ -10,7 +10,7 @@ module.exports = {
   outputDir: isProd ? path.join(__dirname, 'dist') : path.join(__dirname, 'demo'),
   pages: isProd ? {} : undefined,
   css: {
-    extract: false
+    extract: true
   },
   configureWebpack: (config) => {
     // config.resolve.extensions.push('.d.ts')

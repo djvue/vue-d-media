@@ -119,6 +119,7 @@ See [i18n docs](https://kazupon.github.io/vue-i18n/installation.html)
 <manager bordered :config="config"></manager>
 </template>
 <script>
+import 'vue-d-media/dist/vue-d-media.css'
 export default {
   data() {
     return {
