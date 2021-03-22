@@ -1,5 +1,5 @@
 <template lang="pug">
-.d-media-manager-single-uploader(v-if="isMounted")
+.d-media-manager-single-uploader.vue-d-media-common(v-if="isMounted")
   //VueDropzone(ref="myVueDropzone" id="dropzone" :options="dropzoneOptions")
   VueDropzone.d-media-manager-single-uploader__dropzone(
     ref="dropzone"

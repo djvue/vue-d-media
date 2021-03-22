@@ -4,6 +4,7 @@ import SingleUploader from './components/SingleUploader/index.vue'
 import MultiUploader from './components/MultiUploader/index.vue'
 
 import { plugin } from './plugin'
+import './assets/styles/main.sass'
 
 export const install = plugin.install
 

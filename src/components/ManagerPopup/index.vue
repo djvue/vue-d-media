@@ -1,5 +1,5 @@
 <template lang="pug">
-AppPopup.d-media-manager-popup(ref="popup" wrapper-class="d-media-manager-popup__wrapper" @closed="handleClose()")
+AppPopup.d-media-manager-popup.vue-d-media-common(ref="popup" wrapper-class="d-media-manager-popup__wrapper" @closed="handleClose()")
   template(v-slot:title) Media Manager
   Manager.d-media-manager-popup__manager(
     v-if="opened"

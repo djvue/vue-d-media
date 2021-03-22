@@ -1,5 +1,5 @@
 <template lang="pug">
-.d-media-manager-multi-uploader(v-if="isMounted")
+.d-media-manager-multi-uploader.vue-d-media-common(v-if="isMounted")
   //VueDropzone(ref="myVueDropzone" id="dropzone" :options="dropzoneOptions")
   .d-media-manager-multi-uploader__box
     VueDropzone.d-media-manager-multi-uploader__dropzone(

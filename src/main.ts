@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import en from '@/lang/en'
 import ru from '@/lang/ru'
+import './assets/styles/main.sass'
 import App from './App.vue'
 
 Vue.config.productionTip = false

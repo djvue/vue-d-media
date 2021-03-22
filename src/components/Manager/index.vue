@@ -1,5 +1,5 @@
 <template lang="pug">
-  .d-media-manager(:class="{ 'd-media-manager_bordered': bordered }")
+  .d-media-manager.vue-d-media-common(:class="{ 'd-media-manager_bordered': bordered }")
     .d-media-manager__inner(v-show="this.loadingError")
       .d-media-manager__error {{ this.loadingError }}
     .d-media-manager__inner(v-show="!this.loadingError && !isLoaded")
@@ -17,7 +17,7 @@
             @click="type = baseType"
           )
             span.d-media-manager__tab-name {{ $t(`dMedia.manager.types.${baseType}`) }}
-            span.d-media-manager__tab-count ({{ totals[baseType] }})
+            span.d-media-manager__tab-count &nbsp;({{ totals[baseType] }})
         .d-media-manager__filters
           AppSelect.d-media-manager__filter(
             v-for="entity in finalEntities"
