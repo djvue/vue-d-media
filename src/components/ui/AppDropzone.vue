@@ -1,5 +1,5 @@
 <template lang="pug">
-component.app-dropzone(:is="component" v-if="loaded")
+component.d-media-manager-dropzone(:is="component" v-if="loaded")
 </template>
 <script>
 export default {

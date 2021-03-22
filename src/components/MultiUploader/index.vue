@@ -1,8 +1,8 @@
 <template lang="pug">
-.app-multiple-upload(v-if="isMounted")
+.d-media-manager-multi-uploader(v-if="isMounted")
   //VueDropzone(ref="myVueDropzone" id="dropzone" :options="dropzoneOptions")
-  .app-multiple-upload__box
-    VueDropzone.app-multiple-upload__dropzone(
+  .d-media-manager-multi-uploader__box
+    VueDropzone.d-media-manager-multi-uploader__dropzone(
       ref="dropzone"
       :id="id"
       :useCustomSlot="true"
@@ -13,17 +13,17 @@
       @vdropzone-success="handleSuccessUpload"
       @vdropzone-removed-file="handleRemove"
     )
-      .app-multiple-upload__placeholder
+      .d-media-manager-multi-uploader__placeholder
         AppButton {{ finalAddText }}
       //
         @vdropzone-file-added="handleFileAdded()"
 
-  //.app-multiple-upload__placeholder
-    .app-multiple-upload__placeholder-text upload image
-  footer.app-multiple-upload__footer
-    .app-multiple-upload__action(v-if="enableManager" @click.stop="openManagerPopup()") {{ $t('dMedia.multiUploader.manager') }}
-    .app-multiple-upload__constraint-list
-      .app-multiple-upload__constraint(v-for="(constraint, index) in (constraints || defaultConstraints)" :key="constraint") {{ constraint }}
+  //.d-media-manager-multi-uploader__placeholder
+    .d-media-manager-multi-uploader__placeholder-text upload image
+  footer.d-media-manager-multi-uploader__footer
+    .d-media-manager-multi-uploader__action(v-if="enableManager" @click.stop="openManagerPopup()") {{ $t('dMedia.multiUploader.manager') }}
+    .d-media-manager-multi-uploader__constraint-list
+      .d-media-manager-multi-uploader__constraint(v-for="(constraint, index) in (constraints || defaultConstraints)" :key="constraint") {{ constraint }}
   ManagerPopup(v-if="enableManager" ref="managerPopup" @submit="handlePopupSubmit($event)" :maxFiles="maxFiles" :value="value" :config="config")
 </template>
 <script lang="ts">

@@ -1,7 +1,7 @@
 <template lang="pug">
-.app-upload(v-if="isMounted")
+.d-media-manager-single-uploader(v-if="isMounted")
   //VueDropzone(ref="myVueDropzone" id="dropzone" :options="dropzoneOptions")
-  VueDropzone.app-upload__dropzone(
+  VueDropzone.d-media-manager-single-uploader__dropzone(
     ref="dropzone"
     :id="id"
     :useCustomSlot="true"
@@ -14,11 +14,11 @@
     //
       @vdropzone-file-added="handleFileAdded()"
 
-    .app-upload__placeholder
-      .app-upload__placeholder-text upload image
-    .app-upload__constraint-list
-      .app-upload__constraint(v-for="(constraint, index) in constraints" :key="constraint") {{ constraint }}
-    .app-upload__action(v-if="enableManager" @click.stop="openManagerPopup()") {{ $t('dMedia.singleUploader.manager') }}
+    .d-media-manager-single-uploader__placeholder
+      .d-media-manager-single-uploader__placeholder-text upload image
+    .d-media-manager-single-uploader__constraint-list
+      .d-media-manager-single-uploader__constraint(v-for="(constraint, index) in constraints" :key="constraint") {{ constraint }}
+    .d-media-manager-single-uploader__action(v-if="enableManager" @click.stop="openManagerPopup()") {{ $t('dMedia.singleUploader.manager') }}
   ManagerPopup(v-if="enableManager" ref="managerPopup" :value="value" @submit="handlePopupSubmit($event)" :maxFiles="1" :config="config")
 </template>
 <script lang="ts">
