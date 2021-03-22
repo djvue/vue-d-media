@@ -14,7 +14,7 @@
       @vdropzone-removed-file="handleRemove"
     )
       .app-multiple-upload__placeholder
-        button.app-multiple-upload__button {{ finalAddText }}
+        AppButton {{ finalAddText }}
       //
         @vdropzone-file-added="handleFileAdded()"
 
@@ -33,6 +33,7 @@ import Base from '@/components/Base'
 import hasObjectValue from '@/utils/mixins/has-object-value'
 import { AxiosResponse } from 'axios'
 import ManagerPopup from '@/components/ManagerPopup/index.vue'
+import AppButton from '@/components/ui/AppButton/index.vue'
 import VueDropzone from 'vue2-dropzone'
 import { FilterEntities, Media } from '~types/structures'
 
@@ -56,6 +57,7 @@ const THUMBNAIL_HEIGHT = 136
     // VueDropzone: () => import('vue2-dropzone'),
     VueDropzone,
     ManagerPopup,
+    AppButton,
   },
   mixins: [hasObjectValue],
 })

@@ -50,7 +50,7 @@ export const mergeConfig = (a: FullConfig, b: Config): FullConfig => {
     maxFiles: prop('maxFiles'),
     maxFilesize: prop('maxFilesize'),
     api: {
-      repository: prop('api.repository'),
+      repository: b.api?.config ? new ApiRepository(prop('api.config')) : prop('api.repository'),
       config: prop('api.config'),
     },
   }

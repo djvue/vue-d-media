@@ -1,25 +1,25 @@
 module.exports = {
-  "root": true,
-  "env": {
-    "node": true
+  root: true,
+  env: {
+    node: true
   },
-  "extends": [
-    "plugin:vue/essential",
-    "eslint:recommended",
-    "@vue/typescript",
-    "@vue/airbnb",
-    "@vue/typescript/recommended"
+  extends: [
+    'plugin:vue/essential',
+    'eslint:recommended',
+    '@vue/typescript',
+    '@vue/airbnb',
+    '@vue/typescript/recommended'
   ],
-  "parserOptions": {
-    "parser": "@typescript-eslint/parser",
-    "ecmaVersion": 2020
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020
   },
   settings: {
     'import/resolver': {
       'eslint-import-resolver-typescript': {}
     },
   },
-  "rules": {
+  rules: {
     'max-len': 'off',
     'vue/max-len': [
       'warn',
