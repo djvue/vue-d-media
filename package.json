@@ -1,6 +1,6 @@
 {
   "name": "vue-d-media",
-  "version": "0.8.14",
+  "version": "0.8.15",
   "private": false,
   "description": "Media manager & upload field package",
   "author": "djvue <vahlovd@gmail.com>",
@@ -38,6 +38,7 @@
   "dependencies": {
     "@types/source-map": "^0.5.2",
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "eslint-import-resolver-typescript": "^2.4.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
