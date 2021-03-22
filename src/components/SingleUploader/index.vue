@@ -19,7 +19,7 @@
     .app-upload__constraint-list
       .app-upload__constraint(v-for="(constraint, index) in constraints" :key="constraint") {{ constraint }}
     .app-upload__action(v-if="enableManager" @click.stop="openManagerPopup()") {{ $t('dMedia.singleUploader.manager') }}
-  ManagerPopup(v-if="enableManager" ref="managerPopup" :value="value" @submit="handlePopupSubmit($event)" :maxFiles="1")
+  ManagerPopup(v-if="enableManager" ref="managerPopup" :value="value" @submit="handlePopupSubmit($event)" :maxFiles="1" :config="config")
 </template>
 <script lang="ts">
 import './index.sass'

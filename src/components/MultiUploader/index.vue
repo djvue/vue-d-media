@@ -24,7 +24,7 @@
     .app-multiple-upload__action(v-if="enableManager" @click.stop="openManagerPopup()") {{ $t('dMedia.multiUploader.manager') }}
     .app-multiple-upload__constraint-list
       .app-multiple-upload__constraint(v-for="(constraint, index) in (constraints || defaultConstraints)" :key="constraint") {{ constraint }}
-  ManagerPopup(v-if="enableManager" ref="managerPopup" @submit="handlePopupSubmit($event)" :maxFiles="maxFiles" :value="value")
+  ManagerPopup(v-if="enableManager" ref="managerPopup" @submit="handlePopupSubmit($event)" :maxFiles="maxFiles" :value="value" :config="config")
 </template>
 <script lang="ts">
 import './index.sass'
