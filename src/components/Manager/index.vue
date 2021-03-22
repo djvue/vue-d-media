@@ -274,7 +274,7 @@ export default class DMediaManager extends Base {
         success, message, /* code, */ data
       } = await this.baseConfig.api.repository.upload(
         file,
-        {},
+        { ...this.filters, ...this.finalHiddenEntities },
         (percent) => {
           media.progress = percent
         }
