@@ -109,6 +109,8 @@ export default class DMediaManagerSidebar extends Base {
   border-left: 1px solid $color-borders
   padding: 16px
   text-align: left
+  overflow-y: auto
+  max-height: 100%
   &__chosen
     margin-bottom: 16px
   &__card
