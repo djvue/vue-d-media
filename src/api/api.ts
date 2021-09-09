@@ -27,6 +27,7 @@ class ApiRepository implements RepositoryInterface {
   // eslint-disable-next-line class-methods-use-this
   public getAxios(): AxiosInstance {
     return axios.create({
+      baseURL: this.config.baseUrl,
       validateStatus: () => true,
       headers: this.config.headers
     })

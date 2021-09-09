@@ -94,7 +94,7 @@ export default class DMediaManagerSingleUploader extends Base {
   get options(): { [key: string]: any } { // eslint-disable-line @typescript-eslint/no-explicit-any
     return {
       // eslint-disable-next-line no-restricted-globals
-      url: `${location.origin}${this.baseConfig.api.config.prefix}`,
+      url: `${this.baseConfig.api.config.baseUrl || location.origin}${this.baseConfig.api.config.prefix}`,
       /* url: (files) => {
         console.log(files)
         return '/api/board/media'

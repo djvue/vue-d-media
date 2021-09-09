@@ -2,6 +2,7 @@ import { RepositoryInterface } from './Api'
 import { Entity } from './Entity'
 
 export interface ApiConfig {
+  baseUrl?: string
   prefix?: string
   headers?: { [name: string]: string }
 }
@@ -21,6 +22,7 @@ export interface Config {
 }
 
 export interface FullApiConfig {
+  baseUrl?: string
   prefix: string
   headers: { [name: string]: string }
 }
