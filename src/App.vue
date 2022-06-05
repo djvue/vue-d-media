@@ -43,7 +43,11 @@ export default class App extends Vue {
     width: 1080,
     height: 1920,
     mimeType: 'image/jpeg',
-    entities: {}
+    entities: {},
+    sizes: {
+      card: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
+      preview: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
+    },
   }]
 
   private multiMedias: Media[] = [{
@@ -57,7 +61,11 @@ export default class App extends Vue {
     width: 1080,
     height: 1920,
     mimeType: 'image/jpeg',
-    entities: {}
+    entities: {},
+    sizes: {
+      card: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
+      preview: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
+    },
   }, {
     id: 3,
     url: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
@@ -69,7 +77,11 @@ export default class App extends Vue {
     width: 1080,
     height: 1920,
     mimeType: 'image/jpeg',
-    entities: {}
+    entities: {},
+    sizes: {
+      card: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
+      preview: 'https://storage.yandexcloud.net/conceptor/uploads/packshot-background-6021c36e02e5f2.37527390.png',
+    },
   }]
 
   get entities() {

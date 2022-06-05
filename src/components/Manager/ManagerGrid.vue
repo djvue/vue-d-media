@@ -156,9 +156,10 @@ export default class DMediaManagerGrid extends Base {
 }
 </script>
 <style lang="sass">
+@use "sass:math"
 @import '~@/assets/styles/variables'
 $margin: 16px
-$semi-margin: $margin / 2
+$semi-margin: math.div($margin, 2)
 .d-media-manager-grid
   margin: -$semi-margin
   user-select: none
@@ -170,28 +171,28 @@ $semi-margin: $margin / 2
   &__item-wrapper
     position: relative
     $n: 2
-    width: (100% / $n)
-    padding-bottom: (100% / $n)
+    width: math.div(100%, $n)
+    padding-bottom: math.div(100%, $n)
     @media screen and (min-width: 800px)
       $n: 3
-      width: (100% / $n)
-      padding-bottom: (100% / $n)
+      width: math.div(100%, $n)
+      padding-bottom: math.div(100%, $n)
     @media screen and (min-width: 1000px)
       $n: 4
-      width: (100% / $n)
-      padding-bottom: (100% / $n)
+      width: math.div(100%, $n)
+      padding-bottom: math.div(100%, $n)
     @media screen and (min-width: 1200px)
       $n: 5
-      width: (100% / $n)
-      padding-bottom: (100% / $n)
+      width: math.div(100%, $n)
+      padding-bottom: math.div(100%, $n)
     @media screen and (min-width: 1400px)
       $n: 6
-      width: (100% / $n)
-      padding-bottom: (100% / $n)
+      width: math.div(100%, $n)
+      padding-bottom: math.div(100%, $n)
     @media screen and (min-width: 1600px)
       $n: 7
-      width: (100% / $n)
-      padding-bottom: (100% / $n)
+      width: math.div(100%, $n)
+      padding-bottom: math.div(100%, $n)
   &__item
     cursor: pointer
     position: absolute

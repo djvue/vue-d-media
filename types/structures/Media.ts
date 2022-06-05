@@ -12,4 +12,8 @@ export type Media = {
   width: number
   height: number
   entities: FilterEntities
+  sizes: {
+    card: string
+    preview: string
+  }
 }
