@@ -17,7 +17,7 @@
       }"
     )
       .d-media-manager-grid__item-index(v-if="isPicked(item.id)") {{ getPickedIndex(item.id) + 1 }}
-      img.d-media-manager-grid__item-img(:src="item.url" :alt="item.name" v-if="isImages")
+      img.d-media-manager-grid__item-img(:src="item.sizes.card" :alt="item.name" v-if="isImages")
       .d-media-manager-grid__item-file-label(v-if="isFiles")
         .d-media-manager-grid__item-file-name {{ item.name }}
         .d-media-manager-grid__item-file-meta-label {{ item.mimeType }}

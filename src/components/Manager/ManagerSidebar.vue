@@ -17,7 +17,7 @@ aside.d-media-manager-sidebar(v-else)
   .d-media-manager-sidebar__inner
     .d-media-manager-sidebar__card
       .d-media-manager-sidebar__image-box(v-if="isImages")
-        img.d-media-manager-sidebar__image(:src="media.url")
+        img.d-media-manager-sidebar__image(:src="media.sizes.preview")
       .d-media-manager-sidebar__name {{ media.name }}
       .d-media-manager-sidebar__meta
         span.d-media-manager-sidebar__meta-label {{ media.mimeType }}
