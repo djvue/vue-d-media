@@ -4,7 +4,7 @@
     .d-media-manager-grid__item.d-media-manager__item_uploading
       .d-media-manager-grid__item-progress
         .d-media-manager__item-progress-line(style="{ width: `${item.progress}%` }")
-      img.d-media-manager-grid__item-img(:src="item.url" :alt="item.name" v-if="isImages")
+      img.d-media-manager-grid__item-img(:src="makeImgUrl(item.url)" :alt="item.name" v-if="isImages")
       .d-media-manager-grid__item-file-label(v-if="isFiles")
         .d-media-manager-grid__item-file-name {{ item.name }}
         .d-media-manager-grid__item-file-meta-label {{ item.type }}
@@ -17,7 +17,7 @@
       }"
     )
       .d-media-manager-grid__item-index(v-if="isPicked(item.id)") {{ getPickedIndex(item.id) + 1 }}
-      img.d-media-manager-grid__item-img(:src="item.sizes.card" :alt="item.name" v-if="isImages")
+      img.d-media-manager-grid__item-img(:src="makeImgUrl(item.url)" :alt="item.name" v-if="isImages")
       .d-media-manager-grid__item-file-label(v-if="isFiles")
         .d-media-manager-grid__item-file-name {{ item.name }}
         .d-media-manager-grid__item-file-meta-label {{ item.mimeType }}
@@ -27,6 +27,10 @@
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import Base from '@/components/Base'
 import { Media, UploadingMedia } from '~types/structures'
+import { resize } from '@/utils/resize'
+
+const THUMBNAIL_WIDTH = 136
+const THUMBNAIL_HEIGHT = 136
 
 // TODO: add image cover/contain option
 // TODO: add canvas uploaded image rendering https://gist.github.com/mfyz/10198229
@@ -152,6 +156,10 @@ export default class DMediaManagerGrid extends Base {
       this.unpick(id)
     }
     this.picked.push(id)
+  }
+
+  makeImgUrl(url: string): string {
+    return resize(this, url, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, 'jpeg', 'crop')
   }
 }
 </script>

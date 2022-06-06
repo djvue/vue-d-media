@@ -32,6 +32,7 @@ import { AxiosResponse } from 'axios'
 // import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import VueDropzone from 'vue2-dropzone'
 import { Media, FilterEntities } from '~types/structures'
+import { resize } from '@/utils/resize'
 
 const THUMBNAIL_WIDTH = 136
 const THUMBNAIL_HEIGHT = 136
@@ -228,10 +229,7 @@ export default class DMediaManagerSingleUploader extends Base {
   }
 
   makeImgUrl(url: string): string {
-    if (typeof (this as unknown as { $jpeg: never }).$jpeg === 'function') {
-      return ((this as unknown as { $jpeg: never }).$jpeg as (url: string, size: string, type: string) => string)(url, `${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}`, 'crop')
-    }
-    return url
+    return resize(this, url, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, 'jpeg', 'crop')
   }
 
   transformRequest(file: never, xhr: never, formData: FormData) {

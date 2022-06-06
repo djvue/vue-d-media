@@ -17,7 +17,7 @@ aside.d-media-manager-sidebar(v-else)
   .d-media-manager-sidebar__inner
     .d-media-manager-sidebar__card
       .d-media-manager-sidebar__image-box(v-if="isImages")
-        img.d-media-manager-sidebar__image(:src="media.sizes.preview")
+        img.d-media-manager-sidebar__image(:src="makeImagePreviewUrl(media.url)")
       .d-media-manager-sidebar__name {{ media.name }}
       .d-media-manager-sidebar__meta
         span.d-media-manager-sidebar__meta-label {{ media.mimeType }}
@@ -43,6 +43,10 @@ import DownloadIcon from '@/components/Icons/DownloadIcon.vue'
 import { wait } from '@/utils/helpers'
 import { Entity, Media } from '~types/structures'
 import ManagerSidebarForm from './ManagerSidebarForm.vue'
+import { resize } from '@/utils/resize'
+
+const THUMBNAIL_WIDTH = 136
+const THUMBNAIL_HEIGHT = 136
 
 @Component({
   components: { DownloadIcon, DeleteIcon, ManagerSidebarForm },
@@ -71,7 +75,7 @@ export default class DMediaManagerSidebar extends Base {
     this.$forceUpdate()
   }
 
-  get media(): Media|null {
+  get media(): Media | null {
     if (this.value.length !== 1) {
       return null
     }
@@ -82,7 +86,7 @@ export default class DMediaManagerSidebar extends Base {
     this.value.forEach(async (media) => {
       const { success, message } = await this.baseConfig.api.repository.remove(media.id)
       if (!success) {
-        this.removeError = `Remove error: ${message}`
+        this.removeError = `Remove error: ${ message }`
         await wait(5000)
         this.removeError = ''
       }
@@ -101,6 +105,10 @@ export default class DMediaManagerSidebar extends Base {
   handleSubmit() {
     this.$emit('submit')
   }
+
+  makeImgPreviewUrl(url: string): string {
+    return resize(this, url, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, 'jpeg', 'crop')
+  }
 }
 </script>
 <style lang="sass">
@@ -111,38 +119,48 @@ export default class DMediaManagerSidebar extends Base {
   text-align: left
   overflow-y: auto
   max-height: 100%
+
   &__chosen
     margin-bottom: 16px
+
   &__card
     border-bottom: 1px solid $color-borders
     padding-bottom: 16px
+
   &__image-box
     height: 150px
     margin-bottom: 16px
+
   &__image
     display: block
     max-width: 150px
     max-height: 150px
+
   &__name
     text-align: left
     margin-bottom: 16px
+
   &__meta
     display: flex
     justify-content: flex-start
     flex-flow: row wrap
     margin-bottom: 16px
+
   &__meta-label
     display: block
     padding: 3px 6px
     border: 1px solid $color-borders
     font-size: 14px
     border-radius: 4px
+
     &:not(:last-child)
       margin-right: 8px
+
   &__actions
     display: inline-flex
     border: 1px solid $color-borders
     margin-bottom: 16px
+
   &__action
     cursor: pointer
     padding: 6px 16px
@@ -152,15 +170,19 @@ export default class DMediaManagerSidebar extends Base {
     outline: none
     border: none
     background-color: white
+
     &:hover
       opacity: 1
       background-color: #efefef
+
     &:not(:last-child)
       border-right: 1px solid $color-borders
+
   &__remove-error
     color: red
     font-size: 14px
     margin-bottom: 16px
+
   &__button
     margin-top: 3px
     cursor: pointer
@@ -172,10 +194,13 @@ export default class DMediaManagerSidebar extends Base {
     color: $color-text-main
     background-color: white
     transition: background-color 0.3s
+
     &_disabled
       opacity: 0.6
+
     &, &:focus, &:active, &:hover
       outline: none
+
     &:hover
       background-color: $color-bg
 </style>
