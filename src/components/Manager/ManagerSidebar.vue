@@ -42,8 +42,8 @@ import DeleteIcon from '@/components/Icons/DeleteIcon.vue'
 import DownloadIcon from '@/components/Icons/DownloadIcon.vue'
 import { wait } from '@/utils/helpers'
 import { Entity, Media } from '~types/structures'
-import ManagerSidebarForm from './ManagerSidebarForm.vue'
 import { resize } from '@/utils/resize'
+import ManagerSidebarForm from './ManagerSidebarForm.vue'
 
 const THUMBNAIL_WIDTH = 136
 const THUMBNAIL_HEIGHT = 136
@@ -86,7 +86,7 @@ export default class DMediaManagerSidebar extends Base {
     this.value.forEach(async (media) => {
       const { success, message } = await this.baseConfig.api.repository.remove(media.id)
       if (!success) {
-        this.removeError = `Remove error: ${ message }`
+        this.removeError = `Remove error: ${message}`
         await wait(5000)
         this.removeError = ''
       }
